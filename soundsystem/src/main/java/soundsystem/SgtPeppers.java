@@ -10,9 +10,13 @@ to explicitly configure a SgtPeppers bean; Spring will do it for you because thi
 annotated with @Component .
  * 
  */
+/*Spring supports the @Named annotation as an alternative to @Component . There are a
+few subtle differences, but in most common cases they’re interchangeable.
 
+//PER CAMBIARE ID DEL BEAN aggiungo a annotazione il valore che voglio*/
 
-@Component
+//@Component
+@Component("lonelyHeartsClub")
 public class SgtPeppers implements CompactDisc {
 
 	private String title = "Sgt. Pepper's Lonely Hearts Club Band";
