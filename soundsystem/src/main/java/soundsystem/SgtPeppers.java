@@ -1,6 +1,5 @@
 package soundsystem;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /*
@@ -16,7 +15,7 @@ few subtle differences, but in most common cases they’re interchangeable.
 
 //PER CAMBIARE ID DEL BEAN aggiungo a annotazione il valore che voglio*/
 
-@Component
+//@Component
 public class SgtPeppers implements CompactDisc {
 
 	private String title = "Sgt. Pepper's Lonely Hearts Club Band";
@@ -26,16 +25,6 @@ public class SgtPeppers implements CompactDisc {
 	public void play() {
 		System.out.println("Playing " + title + " by " + artist);
 	}
-	
-	/*public SgtPeppers(String title, String artist) {
-		this.title=title;
-		this.artist = artist;
-	}
-	
-	@Bean("lonelyHeartsClubManualBean")
-	public CompactDisc sgtPeppers() {
-	return new SgtPeppers("ciao", "artista");
-	}*/
 
 }
 

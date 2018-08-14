@@ -16,7 +16,8 @@ import org.junit.contrib.java.lang.system.SystemOutRule;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@ContextConfiguration(classes = SoundSystemConfig.class)
+//@ContextConfiguration(classes = SoundSystemConfig.class)//UTILIZZA CONFIG JAVA IN QUESTA CLASSE
+@ContextConfiguration("SoundSystemConfig.xml")//UTILIZZA CONFIG XML SPECIFICATA PER I TEST, ALTERNATIVO A CFG JAVA
 public class SoundsystemApplicationTests {
 
 	/* questa rule di junit serve per confrontare l'output console con il test*/
@@ -26,7 +27,7 @@ public class SoundsystemApplicationTests {
 	@Autowired
 	private CompactDisc cd;
 	
-	@Autowired
+	@Autowired//istanzia una classe che implementi MediaPlayer e che abbia un wiring (automatico o manuale) e la assegna
 	private MediaPlayer player;
 	
 	@Test
@@ -35,8 +36,9 @@ public class SoundsystemApplicationTests {
 	}
 
 	@Test
-	public void cdShouldNotBeNull() {
+	public void controlloNull() {
 		assertNotNull(cd);
+		assertNotNull(player);
 	}
 
 	@Test

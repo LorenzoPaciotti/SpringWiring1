@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class CDPlayer implements MediaPlayer {
 	private CompactDisc cd;
 
@@ -12,12 +12,6 @@ public class CDPlayer implements MediaPlayer {
 	public CDPlayer(CompactDisc cd) {
 		this.cd = cd;
 	}
-
-	//non funziona
-	/*@Bean
-	public CDPlayer cdPlayer(CompactDisc compactDisc) {
-	return new CDPlayer(compactDisc);
-	}*/
 
 	@Override
 	public void play() {
