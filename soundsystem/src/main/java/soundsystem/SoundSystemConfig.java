@@ -2,6 +2,20 @@ package soundsystem;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+/*ALTERNATIVA 1 - ABILITA AUTOWIRING*/
+@Configuration
+@ComponentScan(basePackageClasses={CompactDisc.class})
+public class SoundSystemConfig {
+
+}
+
+/*ALTERNATIVA 2 - SOLO MANUAL WIRING*/
+/*@Configuration
+public class SoundSystemConfig {
+
+}*/
+
+
 /*
  * Or, if you’d rather it be clear that you’re setting the base package, you can do so with
 the basePackages attribute
@@ -24,9 +38,14 @@ marker interface, you can still have a refactor-friendly reference to an interfa
 without references to any actual application code (that could later be refactored out
 of the package you intended to component-scan).
  */
-
-@Configuration
-@ComponentScan(basePackageClasses={CompactDisc.class})
-public class SoundSystemConfig {
-
-}
+/*The
+@Configuration annotation identifies this as a configuration class, and it’s expected
+to contain details on beans that are to be created in the Spring application context.
+So far, you’ve relied on component scanning to discover the beans that Spring
+should create. Although there’s no reason you can’t use component scanning and
+explicit configuration together, we’re focusing on explicit configuration in this sec-
+tion, so I’ve removed the @ComponentScan annotation from CDPlayerConfig .
+With @ComponentScan gone, the CDPlayerConfig class is ineffective. If you were to
+run CDPlayerTest now, the test would fail with a BeanCreationException . The test
+expects to be injected with CDPlayer and CompactDisc , but those beans are never cre-
+ated because they’re never discovered by component scanning.*/
